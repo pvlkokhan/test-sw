@@ -33,6 +33,7 @@ const offersData: Offer[] = [
 function Offers() {
     const buttonText = "Learn more";
     const isFullCard = (index: number) => index % 3 === 0;
+    
     return (
         <div className="offers-container">
             <div className="offers-container__title">Offers</div>

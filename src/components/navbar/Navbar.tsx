@@ -9,23 +9,23 @@ type NavbarItems = {
 }
 
 const navbarItems: NavbarItems[] = [
-        {
-            id: 0,
-            title: "Home",
-            url: "#"
-        },
-        {
-            id: 1,
-            title: "Products",
-            url: "#"
-        },
-        {
-            id: 2,
-            title: "Home",
-            url: "#",
-            icon: getIconPath("cart")
-        },
-    ];
+    {
+        id: 0,
+        title: "Home",
+        url: "#"
+    },
+    {
+        id: 1,
+        title: "Products",
+        url: "#"
+    },
+    {
+        id: 2,
+        title: "Home",
+        url: "#",
+        icon: getIconPath("cart")
+    },
+];
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
