@@ -1,7 +1,7 @@
 function Logo() {
     return (
         <div className="logo">
-            <img src="/src/assets/logo.svg"/>
+            <img src={`${import.meta.env.BASE_URL}/logo.svg`}/>
         </div>
     )
 }
