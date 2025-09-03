@@ -1,0 +1,469 @@
+//----- Variables start
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+
+$bg-color: #000000;
+
+$black-color: #000000;
+$blue-collor: #304571;
+$white-color: #ffffff;
+$yellow-color: #ebff00;
+$pink-color: #ff70d9;
+
+$prim-margin: 40px;
+$prim-padding: 70px;
+$scale-padding: 20px;
+
+$font-bold: 700;
+$font-extra-bold: 800;
+
+$card-title-lg: 72px;
+$card-text-lg: 32px;
+$card-title-md: 48px;
+$card-text-md: 22px;
+$card-title-sm: 36px;
+$card-text-sm: 16px;
+
+//----- Variables end
+
+//----- Mixins start
+@mixin navbar-hover-item {
+  background: linear-gradient(90deg, $yellow-color 22%, $pink-color 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  opacity: 80%;
+}
+@mixin hover-item {
+  opacity: 80%;
+}
+//----- Mixins end
+
+body {
+  margin: 0;
+  background-color: $bg-color;
+  color: $white-color;
+  font-family: "Lato", sans-serif;
+}
+
+.pink-text {
+  color: $pink-color
+}
+
+.yellow-text {
+  color: $yellow-color;
+}
+
+//----- Header start
+.header {
+  padding: 0 $prim-padding;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 20px;
+  }
+}
+//----- Header end
+
+//----- Logo start
+.logo {
+  width: 100px;
+  height: 35px;
+}
+//----- Logo end
+
+//----- Navbar start
+.navbar {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__item {
+    cursor: pointer;
+
+    &__icon {
+      width: 24px;
+      height: 20px;
+
+      &:hover {
+        @include navbar-hover-item()
+      }
+    }
+
+    &__title {
+      margin-right: 40px;
+      @media (max-width: $breakpoint-md) {
+        margin: 0;
+      }
+
+      &:hover {
+        @include navbar-hover-item()
+      }
+    }
+  }
+  @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      right: 0;
+      background: $black-color;
+      padding: 1rem;
+      display: none;
+
+      &--open {
+        display: flex;
+      }
+    }
+}
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: $white-color;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    &--open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    &--open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &--open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+    }
+  }
+//----- Navbar end
+
+//----- Banner start
+.banner {
+  padding: 0 $prim-padding;
+  height: 555px;
+  background-image: url("./assets/bg/banner-earth.png"), url("./assets/bg/banner-bg.png");
+  background-position: center right 100px, center center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 370px, cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    background-position: center right -100px, center center;
+  }
+
+  @media (max-width: 767px) {
+    background-position: center top -150px, center center;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &__container {
+    display: flex;
+    margin-right: 40%;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (max-width: $breakpoint-md) {
+      background-position: center top -150px, center center;
+      align-items: center;
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-weight: $font-extra-bold;
+    font-size: $card-title-lg;
+    line-height: 100%;
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+      font-size: $card-title-md;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+      font-size: $card-title-sm;
+    }
+  }
+
+  &__text {
+    font-weight: $font-bold;
+    font-size: $card-text-lg;
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+      font-size: $card-text-md;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+      font-size: $card-text-sm;
+    }
+  }
+
+  &__button {
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 80px;
+    }
+  }
+}
+//----- Banner end
+
+//----- Button start
+.button {
+  border: 2px solid $yellow-color;
+  border-radius: 100px;
+  padding: 14px 40px;
+  font-size: 22px;
+  cursor: pointer;
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    font-size: $card-text-md;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: $card-text-sm;
+  }
+
+  &__primary {
+    color: $yellow-color;
+    background-color: transparent;
+
+    &:hover {
+      @include hover-item()
+    }
+  }
+
+  &__fill {
+    color: $black-color;
+    background-color: $yellow-color;
+
+    &:hover {
+      @include hover-item()
+    }
+  }
+}
+//----- Button end
+
+//----- Content start
+.content {
+  background: $blue-collor;
+}
+//----- Content end
+
+//----- Content start
+.offers-container {
+  padding: 0 $prim-padding;
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    padding: 0 $scale-padding;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $scale-padding;
+    grid-template-columns: 1fr;
+  }
+
+  &__title {
+    padding: 20px 0;
+    font-size: 32px;
+    font-weight: $font-extra-bold;
+  }
+}
+
+.offers-grid {
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.offer-card {
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-lg) {
+    &--full {
+      grid-column: span 2;
+    }
+  }
+
+  &__content {
+    padding: 3rem;
+    border-radius: 8px;
+
+    &__title {
+      font-size: 74px;
+      font-weight: $font-extra-bold;
+      line-height: 100%;
+      padding-bottom: 1rem;
+
+      &--half {
+        font-size: $card-title-md;
+      }
+
+      @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+        font-size: $card-title-md;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        font-size: $card-title-sm;
+      }
+    }
+
+    &__text {
+      font-size: 26px;
+      font-weight: $font-bold;
+      padding-bottom: 1.5rem;
+
+      &--half {
+        font-size: $card-text-md;
+      }
+
+      @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+        font-size: $card-text-md;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        font-size: $card-text-sm;
+      }
+      
+    }
+  }
+}
+//----- Content end
+
+//----- Info start
+.info {
+  padding: 0 $prim-padding $prim-padding;
+
+  &__title {
+    font-size: 32px;
+    font-weight: $font-extra-bold;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 24px;
+    }
+    @media (max-width: 767px) {
+      font-size: 18px;
+    }
+  }
+
+  &__text {
+    font-size: 20px;
+    font-weight: $font-bold;
+    opacity: 60%;
+    max-height: 0;
+    overflow: hidden;
+    
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 16px;
+    }
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+
+  &__toggle {
+    color: $yellow-color;
+    font-size: 20px;
+    font-weight: $font-extra-bold;
+    cursor: pointer;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+
+    &::after {
+      content: "Read more";
+    }
+  }
+
+  &__toggle-checkbox {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 20px 20px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 20px 20px;
+  }
+}
+
+.info__toggle-checkbox:checked ~ .info__text {
+  max-height: 1000px;
+}
+
+.info__toggle-checkbox:checked ~ .info__toggle::after {
+  content: "Read less";
+}
+//----- Info end
+
+//----- Footer start
+.footer {
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__text {
+    font-size: 18px;
+    font-weight: $font-extra-bold;
+    color: $yellow-color;
+  }
+}
+//----- Footer end
