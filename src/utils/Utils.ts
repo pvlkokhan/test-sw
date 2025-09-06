@@ -3,5 +3,5 @@ export function getIconPath(iconName: string): string {
 }
 
 export function getBgPath(bgName: string): string {
-    return `${import.meta.env.BASE_URL}/bg/${bgName}.png`;
+    return `${import.meta.env.BASE_URL}/bg/${bgName}.webp`;
 }
