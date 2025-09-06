@@ -1,0 +1,36 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as mx;
+
+.button {
+  border: 2px solid $yellow-color;
+  border-radius: 100px;
+  padding: 14px 40px;
+  font-size: 22px;
+  cursor: pointer;
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    font-size: $card-text-md;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: $card-text-sm;
+  }
+
+  &__primary {
+    color: $yellow-color;
+    background-color: transparent;
+
+    &:hover {
+      @include mx.hover-item()
+    }
+  }
+
+  &__fill {
+    color: $black-color;
+    background-color: $yellow-color;
+
+    &:hover {
+      @include mx.hover-item()
+    }
+  }
+}

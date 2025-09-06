@@ -1,0 +1,34 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as mx;
+
+.header {
+  padding: 0 $prim-padding;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    @include mx.padding-md-sm();
+  }
+
+  @media (max-width: $breakpoint-md) {
+    @include mx.padding-md-sm();
+  }
+}
+.content {
+  background: $blue-collor;
+}
+.footer {
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__text {
+    font-size: 18px;
+    font-weight: $font-extra-bold;
+    color: $yellow-color;
+  }
+}

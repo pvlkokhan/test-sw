@@ -1,0 +1,81 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as mx;
+
+.pink-text {
+  color: $pink-color
+}
+
+.yellow-text {
+  color: $yellow-color;
+}
+
+.banner {
+  padding: 0 $prim-padding;
+  height: 555px;
+  background-image: url("/bg/banner-earth.png"), url("/bg/banner-bg.webp");
+  background-position: center right 100px, center center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 370px, cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    background-position: center right -100px, center center;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    background-position: center top -150px, center center;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &__container {
+    display: flex;
+    margin-right: 40%;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (max-width: $breakpoint-md) {
+      background-position: center top -150px, center center;
+      align-items: center;
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-weight: $font-extra-bold;
+    font-size: $card-title-lg;
+    line-height: 100%;
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+      font-size: $card-title-md;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+      font-size: $card-title-sm;
+    }
+  }
+
+  &__text {
+    font-weight: $font-bold;
+    font-size: $card-text-lg;
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+      font-size: $card-text-md;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+      font-size: $card-text-sm;
+    }
+  }
+
+  &__button {
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 80px;
+    }
+  }
+}

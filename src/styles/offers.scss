@@ -1,0 +1,100 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as mx;
+
+.offers-container {
+  padding: 0 $prim-padding;
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    @include mx.padding-md-sm();
+  }
+
+  @media (max-width: $breakpoint-md) {
+    @include mx.padding-md-sm();
+  }
+
+  &__title {
+    padding: 20px 0;
+    font-size: 32px;
+    font-weight: $font-extra-bold;
+  }
+}
+
+.offers-grid {
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.offer-card {
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-lg) {
+    &--full {
+      grid-column: span 2;
+    }
+  }
+
+  &__content {
+    padding: 3rem;
+    border-radius: 8px;
+
+    &__title {
+      font-size: 74px;
+      font-weight: $font-extra-bold;
+      line-height: 100%;
+      padding-bottom: 10px;
+
+      &--half {
+        font-size: $card-title-md;
+      }
+
+      @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+        font-size: $card-title-md;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        font-size: $card-title-sm;
+      }
+    }
+
+    &__text {
+      font-size: 26px;
+      font-weight: $font-bold;
+      padding-bottom: 20px;
+
+      &--half {
+        font-size: $card-text-md;
+      }
+
+      @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+        font-size: $card-text-md;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        font-size: $card-text-sm;
+      }
+      
+    }
+  }
+}

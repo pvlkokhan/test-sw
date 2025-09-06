@@ -1,0 +1,18 @@
+@use "./variables" as *;
+
+@mixin navbar-hover-item {
+  background: linear-gradient(90deg, $yellow-color 22%, $pink-color 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  opacity: 80%;
+}
+
+@mixin hover-item {
+  opacity: 80%;
+}
+
+@mixin padding-md-sm {
+  padding: 0 20px;
+}
