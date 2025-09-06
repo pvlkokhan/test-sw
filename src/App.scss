@@ -13,7 +13,6 @@ $pink-color: #ff70d9;
 
 $prim-margin: 40px;
 $prim-padding: 70px;
-$scale-padding: 20px;
 
 $font-bold: 700;
 $font-extra-bold: 800;
@@ -38,6 +37,10 @@ $card-text-sm: 16px;
 }
 @mixin hover-item {
   opacity: 80%;
+}
+
+@mixin padding-md-sm {
+  padding: 0 20px;
 }
 //----- Mixins end
 
@@ -65,12 +68,12 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 0 20px;
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    @include padding-md-sm();
   }
 
-  @media (max-width: 767px) {
-    padding: 0 20px;
+  @media (max-width: $breakpoint-md) {
+    @include padding-md-sm();
   }
 }
 //----- Header end
@@ -97,12 +100,13 @@ body {
       height: 20px;
 
       &:hover {
-        @include navbar-hover-item()
+        @include navbar-hover-item();
       }
     }
 
     &__title {
       margin-right: 40px;
+
       @media (max-width: $breakpoint-md) {
         margin: 0;
       }
@@ -112,6 +116,7 @@ body {
       }
     }
   }
+
   @media (max-width: $breakpoint-md) {
       flex-direction: column;
       justify-content: space-between;
@@ -181,7 +186,7 @@ body {
     background-position: center right -100px, center center;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: $breakpoint-md) {
     background-position: center top -150px, center center;
     justify-content: end;
     align-items: center;
@@ -277,20 +282,16 @@ body {
 .content {
   background: $blue-collor;
 }
-//----- Content end
 
-//----- Content start
 .offers-container {
   padding: 0 $prim-padding;
 
   @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
-    padding: 0 $scale-padding;
-    grid-template-columns: repeat(2, 1fr);
+    @include padding-md-sm();
   }
 
   @media (max-width: $breakpoint-md) {
-    padding: 0 $scale-padding;
-    grid-template-columns: 1fr;
+    @include padding-md-sm();
   }
 
   &__title {
@@ -344,7 +345,7 @@ body {
       font-size: 74px;
       font-weight: $font-extra-bold;
       line-height: 100%;
-      padding-bottom: 1rem;
+      padding-bottom: 10px;
 
       &--half {
         font-size: $card-title-md;
@@ -362,7 +363,7 @@ body {
     &__text {
       font-size: 26px;
       font-weight: $font-bold;
-      padding-bottom: 1.5rem;
+      padding-bottom: 20px;
 
       &--half {
         font-size: $card-text-md;
@@ -389,10 +390,10 @@ body {
     font-size: 32px;
     font-weight: $font-extra-bold;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
       font-size: 24px;
     }
-    @media (max-width: 767px) {
+    @media (max-width: $breakpoint-md) {
       font-size: 18px;
     }
   }
@@ -404,10 +405,10 @@ body {
     max-height: 0;
     overflow: hidden;
     
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
       font-size: 16px;
     }
-    @media (max-width: 767px) {
+    @media (max-width: $breakpoint-md) {
       font-size: 14px;
     }
   }
@@ -418,11 +419,11 @@ body {
     font-weight: $font-extra-bold;
     cursor: pointer;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
       font-size: 16px;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: $breakpoint-md) {
       font-size: 14px;
     }
 
@@ -435,11 +436,11 @@ body {
     display: none;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
     padding: 0 20px 20px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: $breakpoint-md) {
     padding: 0 20px 20px;
   }
 }
